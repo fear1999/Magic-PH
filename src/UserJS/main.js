@@ -65,7 +65,10 @@ const Supports = {
 };
 const isGM = Supports.gm;
 const win = Supports.uwin;
-const navLang = (navigator.language ?? 'en').split('-')[0] ?? 'en';
+var navLang = (navigator.language ?? 'en').split('-')[0] ?? 'en';
+if (!(navLang in languageList)) {
+    navLang = "en";
+};
 const i18n$ = (...args) => {
   const arr = [];
   for (const arg of args) {
